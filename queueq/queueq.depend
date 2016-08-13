@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1469288167 source:d:\university programming\queueq\mainnnn.cpp
+	<iostream>
+	"que.h"
+
+1469288295 d:\university programming\queueq\que.h
+
+1469288326 source:d:\university programming\queueq\que.cpp
+	"que.h"
+

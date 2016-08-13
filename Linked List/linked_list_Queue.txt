@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct List
+{
+    struct List *next_addres ;
+    int value ;
+}*top=NULL;
+
+void push(int data)
+{
+    if(top==NULL)
+        {
+            top = new List();
+            top->value = data ;
+            top->next_addres = NULL;
+        }
+        else
+        {
+            List *temp = new List();
+            List *c = new List();
+            temp = top ;
+            while(temp->next_addres!=NULL) temp=temp->next_addres;
+            c->value = data ;
+            temp->next_addres = c ;
+            c->next_addres = NULL ;
+        }
+}
+
+void pop()
+{
+    if(top==NULL) cout << "Queue Underflow\n";
+    else
+    {
+        cout << "Popped : " << top->value << endl ;
+        List *t= top;
+        top = top->next_addres ;
+        delete t;
+    }
+}
+
+void front()
+{
+    if(top==NULL) cout << "Queue Empty\n";
+    else cout << "Top : " << top->value << endl ;
+}
+
+int main()
+{
+    push(30);
+    push(70);
+    push(-7);
+    front();
+    pop();
+    front();
+    push(11);
+    front();
+    pop();
+    front();
+    return 0 ;
+}
+

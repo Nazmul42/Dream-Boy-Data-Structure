@@ -1,0 +1,69 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Dequeue{
+public:
+    int Arr[500], t, h;
+
+    Dequeue(){
+    t=250;
+    h=250;
+    }
+
+    void push_front(int data){
+        h--;
+        Arr[h]=data;
+    }
+
+    void push_bottom(int data){
+        Arr[t]=data;
+        t++;
+    }
+
+
+    void pop_bottom(){
+        if(t==h) puts("Dequeue Underflow");
+        else{
+            printf("Delete...%d\n",Arr[--t]);
+        }
+    }
+
+    void pop_front(){
+        if(t==h) puts("Dequeue Underflow");
+        else
+        {
+            printf("Delete...%d\n",Arr[h]);
+            h++;
+        }
+    }
+
+    int front(){
+        if(t==h) puts("Dequeue is empty.");
+
+        else  return Arr[h];
+    }
+
+    int bottom(){
+        if(t==h) puts("Dequeue is empty.");
+
+        else  return Arr[t-1];
+    }
+
+};
+
+int main(){
+
+    Dequeue s;
+
+    s.push_front(36);
+    s.push_front(50);
+    s.push_bottom(40);
+    s.pop_front();
+    s.pop_bottom();
+    //s.pop_bottom();
+
+    cout << s.front() <<  endl;
+    cout << s.bottom() <<  endl;
+
+    return 0;
+}

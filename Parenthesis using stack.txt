@@ -1,0 +1,79 @@
+#include<iostream>
+#include<stack>
+#include<string>
+using namespace std;
+
+class Stack{
+public:
+    char array[128];
+    int top;
+
+    Stack()
+        {
+        top=0;
+        }
+    char push(char data)
+    {
+      array[top]=data;
+      top=top+1;
+    }
+    char pop()
+    {
+    top=top-1;
+    return array[top];
+    }
+    char peek()
+    {
+      return array[top-1];
+    }
+    bool ArePair(char open, char close)
+    {
+    if(open=='(' && close==')')return true;
+    if(open=='{' && close=='}')return true;
+    if(open=='[' && close==']')return true;
+    return false;
+    }
+
+    bool empty()
+    {
+    return top==0;
+    }
+
+
+bool AreBalanced(string exp)
+{
+	stack<char>  S;
+	for(int i =0;i<exp.length();i++)
+	{
+		if(exp[i] == '(' || exp[i] == '{' || exp[i] == '[')
+			S.push(exp[i]);
+		else if(exp[i] == ')' || exp[i] == '}' || exp[i] == ']')
+		{
+			if(S.empty() )
+				return false;
+			else
+				S.pop();
+		}
+	}
+	return S.empty() ;
+	return true;
+	return false;
+}
+};
+
+int main()
+{
+
+
+
+	string expression;
+	Stack S;
+	cout<<"Enter an expression:  ";
+	cin>>expression;
+	 if(S.AreBalanced(expression))
+		cout<<"YES\n";
+	else
+		cout<<"NO\n";
+
+
+}

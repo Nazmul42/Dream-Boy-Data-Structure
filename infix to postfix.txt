@@ -1,0 +1,93 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class Stack{
+private:
+    const static int MAXN =150;
+    char A[MAXN];
+    int top;
+
+public:
+    Stack(){
+        top=0;
+    }
+
+    void push(char data){
+        A[top] = data;
+        top++;
+    }
+
+    char pop(){
+       return A[--top];
+    }
+
+    char peek(){
+        return A[top-1];
+    }
+
+    bool isEmpty(){
+        return top==0;
+    }
+};
+
+
+
+
+int main(){
+
+    Stack s, t;
+
+
+    
+    char ch;
+    string line;
+    
+    getc(stdin);
+
+    
+
+            cout << "Enter your infix expression:" << endl;
+            
+            getline(cin, line);
+
+        cout << "postfix: ";
+        for(int i=0; line[i]; i++){
+
+                if(line[i] == ' ') continue;
+                else if(line[i] == '+' || line[i] == '-' || line[i] == '*' || line[i] == '/' || line[i] == '('){
+                    if(s.isEmpty()) s.push(line[i]);
+                    else if(line[i] == '(' ) s.push(line[i]);
+                    else if(line[i] == '*' || line[i] == '/' ) s.push(line[i]);
+                    else if(line[i] == '+' || line[i] == '-' ){
+                        while(s.peek() == '*' || s.peek() == '/' ){
+                                if(s.isEmpty())break;
+                                t.push(s.peek());
+                                s.pop();
+                              }
+                              s.push(line[i]);
+                        while(!t.isEmpty()){
+                                s.push(t.peek());
+                                t.pop();
+                        }
+                    }
+                   }
+                   else if(line[i] == ')' ){
+                    while(!s.isEmpty()){
+                            ch = s.peek();
+                            if(ch != '(')
+                            cout << s.peek() << " ";
+                            s.pop();
+                          }
+                   }
+                   else cout << line[i] << " ";
+        }
+        while(!s.isEmpty()){
+            ch=s.peek();
+            if(ch != '(')
+            cout << ch << " ";
+            s.pop();
+        }
+        cout << endl;
+
+}

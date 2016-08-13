@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int Stack[500], t;
+
+void push(int a)
+{
+     Stack[t]=a;
+    t=t+1;
+}
+void pop()
+{
+    if(t==0) puts("Stack underflow");
+    else
+    {
+        printf("Delete...%d\n", Stack[t-1]);
+        t=t-1;
+    }
+}
+void top()
+{
+   if(t==0) puts("Stack is empty.");
+   else printf("%d\n", Stack[t-1]);
+}
+int main()
+
+{
+    push(20);
+    push(18);
+    push(50);
+    pop();
+    pop();
+    top();
+    push(25);
+    top();
+
+    return 0;
+}
