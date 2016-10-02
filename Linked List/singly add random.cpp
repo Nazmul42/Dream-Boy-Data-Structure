@@ -54,7 +54,7 @@ int main(){
 
     search();
 
-    add_random(7 , 20);
+    add_random(9, 20);
 
     search();
 

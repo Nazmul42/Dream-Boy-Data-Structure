@@ -38,8 +38,8 @@ int main(){
 
 
     cout << reverse() << endl;
-    cout << reverse() << endl;
-    cout << reverse() << endl;
+    //cout << reverse() << endl;
+    //cout << reverse() << endl;
     return 0;
 }
 

@@ -6,7 +6,7 @@ struct List{
     int data ;
 }*head=NULL, *tail=NULL;
 
-void insert(int data){
+void Insert(int data){
     List *n= new List;
     n->data=data;
     n->next=NULL;
@@ -59,12 +59,14 @@ void N_reverse(Node *n=Front){
 
 int main(){
     cout << "How many node you want to create: ";
-    int r; cin >> r;
+    int r;
+    cin >> r;
     cout << endl << "Enter " << r << " values: " << endl;
     for(int i=0; i<r; i++){
-         int a;cin >> a;
-            insert(a);
-            N_insert(a);
+         int a;
+         cin >> a;
+        Insert(a);
+        N_insert(a);
 
     }
 

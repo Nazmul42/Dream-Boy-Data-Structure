@@ -36,11 +36,13 @@ void search(int data){
 
 int main(){
     cout << "How many node you want to create: ";
-    int r; cin >> r;
+    int r;
+    cin >> r;
     cout << endl << "Enter " << r << " values: " << endl;
     for(int i=0; i<r; i++){
-         int a;cin >> a;
-            insert(a);
+         int a;
+         cin >> a;
+        insert(a);
     }
 
     cout << "which node you want to search, give numerical value: ";
